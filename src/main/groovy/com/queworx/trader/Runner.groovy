@@ -142,7 +142,11 @@ class Runner implements ErrorHandler, Thread.UncaughtExceptionHandler
 
 		try
 		{
-			instrumentDatastore.registerInstruments(dao.instrumentDao.fetchInstruments(InstrumentDAO.SELECT_MAJOR_EXCHANGES, true))
+			// I had a database of instruments, but that code is too big and not necessary
+			Instrument a = new Instrument(id: 1, symbol: "GOOG", name: "Alphabet Inc.")
+			Instrument b = new Instrument(id: 2, symbol: "AAPL", name: "Apple")
+
+			instrumentDatastore.registerInstruments([a, b])
 			ibBroker.connect()
 			mbtBroker.connect()
 			tickFeed.connect()
