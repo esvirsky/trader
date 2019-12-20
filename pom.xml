@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.queworx.trader</groupId>
+    <artifactId>trader</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.5.8</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>2.5.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.groovy.modules.http-builder</groupId>
+            <artifactId>http-builder</artifactId>
+            <version>0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.10.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>tws-api</groupId>
+            <artifactId>tws-api</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\lib\tws-api.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>activetick</groupId>
+            <artifactId>activetick</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\lib\activetick\atapi.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>activetick</groupId>
+            <artifactId>gun-crypto</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\lib\activetick\gnu-crypto.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>activetick</groupId>
+            <artifactId>javax-crypto</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\lib\activetick\javax-crypto.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>activetick</groupId>
+            <artifactId>javax-security</artifactId>
+            <scope>system</scope>
+            <version>1.0</version>
+            <systemPath>${basedir}\lib\activetick\javax-security.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+        </dependency>
+        <dependency>
+            <groupId>org.gmock</groupId>
+            <artifactId>gmock</artifactId>
+            <version>0.8.2</version>
+        </dependency>
+
+    </dependencies>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version><!-- 3.6.2 is the minimum -->
+                <configuration>
+                    <compilerId>groovy-eclipse-compiler</compilerId>
+                    <compilerArguments>
+                        <indy/><!-- optional; supported by batch 2.4.12-04+ -->
+                        <configScript>config.groovy</configScript><!-- optional; supported by batch 2.4.13-02+ -->
+                    </compilerArguments>
+                    <failOnWarning>false</failOnWarning><!-- optional; supported by batch 2.5.8-02+ -->
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-compiler</artifactId>
+                        <version>3.5.0-01</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-eclipse-batch</artifactId>
+                        <version>2.5.8-02</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+</project>

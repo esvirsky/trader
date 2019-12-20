@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+    <appender name="std-out" class="org.apache.log4j.ConsoleAppender">
+    	<param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="info"/>
+            <param name="LevelMax" value="info"/>
+            <param name="AcceptOnMatch" value="false"/>
+        </filter>
+    </appender> 
+    
+    <appender name="std-err" class="org.apache.log4j.ConsoleAppender">
+    	<param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="warn"/>
+            <param name="LevelMax" value="fatal"/>
+            <param name="AcceptOnMatch" value="false"/>
+        </filter> 
+    </appender> 
+
+    <appender name="error-out" class="org.apache.log4j.FileAppender">
+        <param name="File" value="logs/error.log"/>
+        <param name="Threshold" value="error"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="info-out" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="File" value="logs/info.log"/>
+        <param name="Threshold" value="info"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/%d{yyyy-MM-dd}/info.log" />
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="info"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="warn"/>
+            <param name="AcceptOnMatch" value="true"/> 
+        </filter>
+        <filter class="org.apache.log4j.varia.DenyAllFilter"/>
+    </appender>
+
+    <appender name="debug-out" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="File" value="logs/debug.log"/>
+        <param name="Threshold" value="debug"/>
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="logs/%d{yyyy-MM-dd}/debug.log" />
+        </rollingPolicy>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="debug"/>
+            <param name="AcceptOnMatch" value="true"/>
+        </filter>
+        <filter class="org.apache.log4j.varia.DenyAllFilter"/>
+    </appender>
+
+    <category name="org.apache.http">
+        <priority value ="WARN" />
+    </category>
+
+    <category name="groovyx.net.http">
+        <priority value ="WARN" />
+    </category>
+
+    <logger name="org.hibernate">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="org.jboss">
+        <level value="WARN"/>
+    </logger>
+
+    <logger name="com.mchange">
+        <level value="WARN"/>
+    </logger>
+
+    <root> 
+        <level value="all"/> 
+        <appender-ref ref="std-out" />
+        <appender-ref ref="std-err" />
+        <appender-ref ref="error-out" />
+        <appender-ref ref="info-out" />
+        <appender-ref ref="debug-out" />
+    </root> 
+</log4j:configuration>
