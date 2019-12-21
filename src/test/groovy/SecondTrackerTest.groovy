@@ -3,6 +3,7 @@ package com.queworx.trader
 import org.gmock.GMockTestCase
 import org.junit.Before
 import com.queworx.Clock
+import com.queworx.Calendar
 import com.queworx.Instrument
 import com.queworx.Tick
 import com.queworx.trader.tracking.SecondTracker
@@ -17,7 +18,7 @@ class SecondTrackerTest extends GMockTestCase
 	@Before void setUp()
 	{
 		__clock = mock(Clock)
-		__calendar = mock(rise.Calendar)
+		__calendar = mock(Calendar)
 
 		__construct = {__tracker = new SecondTracker(__calendar, __clock, 30000)}
 	}

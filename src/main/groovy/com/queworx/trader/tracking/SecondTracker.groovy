@@ -4,6 +4,7 @@ import groovy.util.logging.Log4j
 import org.joda.time.DateTime
 import com.queworx.Clock
 import com.queworx.Instrument
+import com.queworx.Calendar
 import com.queworx.Tick
 import com.queworx.fetching.feed.TickListener
 

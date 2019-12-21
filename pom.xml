@@ -29,7 +29,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -61,38 +61,28 @@
         <dependency>
             <groupId>tws-api</groupId>
             <artifactId>tws-api</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${basedir}\lib\tws-api.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>activetick</groupId>
             <artifactId>activetick</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${basedir}\lib\activetick\atapi.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>activetick</groupId>
             <artifactId>gun-crypto</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${basedir}\lib\activetick\gnu-crypto.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>activetick</groupId>
             <artifactId>javax-crypto</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${basedir}\lib\activetick\javax-crypto.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>activetick</groupId>
             <artifactId>javax-security</artifactId>
-            <scope>system</scope>
             <version>1.0</version>
-            <systemPath>${basedir}\lib\activetick\javax-security.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -136,6 +126,14 @@
                         <version>2.5.8-02</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <mainClass>com.queworx.trader.Runner</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

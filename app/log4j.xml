@@ -3,7 +3,7 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
     <appender name="std-out" class="org.apache.log4j.ConsoleAppender">
     	<param name="target" value="System.out"/>
-        <layout class="org.apache.log4j.PatternLayout"> 
+        <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%d{MM/dd/yyyy HH:mm:ss.SSS} [%t] %-5p %c - %m%n"/>
         </layout>
         <filter class="org.apache.log4j.varia.LevelRangeFilter">
@@ -11,7 +11,7 @@
             <param name="LevelMax" value="info"/>
             <param name="AcceptOnMatch" value="false"/>
         </filter>
-    </appender> 
+    </appender>
     
     <appender name="std-err" class="org.apache.log4j.ConsoleAppender">
     	<param name="target" value="System.err"/>
@@ -33,7 +33,7 @@
         </layout>
     </appender>
 
-    <appender name="info-out" class="org.apache.log4j.rolling.RollingFileAppender">
+    <appender name="info-out" class="org.apache.log4j.RollingFileAppender">
         <param name="File" value="logs/info.log"/>
         <param name="Threshold" value="info"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
@@ -53,7 +53,7 @@
         <filter class="org.apache.log4j.varia.DenyAllFilter"/>
     </appender>
 
-    <appender name="debug-out" class="org.apache.log4j.rolling.RollingFileAppender">
+    <appender name="debug-out" class="org.apache.log4j.RollingFileAppender">
         <param name="File" value="logs/debug.log"/>
         <param name="Threshold" value="debug"/>
         <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">

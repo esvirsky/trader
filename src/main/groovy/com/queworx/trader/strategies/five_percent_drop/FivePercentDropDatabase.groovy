@@ -1,5 +1,6 @@
 package com.queworx.trader.strategies.five_percent_drop
 
+import com.queworx.Calendar
 import com.queworx.Instrument
 import com.queworx.InstrumentDatastore
 import com.queworx.trader.strategies.DataSet

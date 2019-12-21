@@ -29,6 +29,7 @@ import com.queworx.fetching.activetick.SymbolFormatter
 import com.queworx.fetching.feed.Feed
 import com.queworx.fetching.feed.HttpStreamingFeed
 import com.queworx.*
+import org.apache.log4j.xml.DOMConfigurator
 
 @Log4j
 class Runner implements ErrorHandler, Thread.UncaughtExceptionHandler
@@ -37,10 +38,8 @@ class Runner implements ErrorHandler, Thread.UncaughtExceptionHandler
     {
         long time = System.currentTimeMillis()
 
-	    Properties logProperties = new Properties();
-	    logProperties.load(new FileInputStream("log4j.xml"));
-	    PropertyConfigurator.configure(logProperties);
-
+		DOMConfigurator.configure("app/log4j.xml");
+		log.info("hello")
 	    Runner runner = new Runner()
 	    runner.run(args)
 
@@ -55,7 +54,7 @@ class Runner implements ErrorHandler, Thread.UncaughtExceptionHandler
 		if(new File("config.properties").exists())
 			config.load(new File("config.properties"))
 		else
-			config.load(new File("five_percent_drop.properties"))
+			config.load(new File("app/five_percent_drop.properties"))
 
 		// Wrapping these things made it easy for me to unit test
 		Calendar calendar = new Calendar()

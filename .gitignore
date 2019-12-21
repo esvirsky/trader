@@ -3,3 +3,5 @@ start.bat
 *.iml
 target
 target/*
+logs
+logs/*

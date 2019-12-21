@@ -13,7 +13,7 @@ import com.queworx.trader.strategies.TradeEvaluator
 import com.queworx.trader.tracking.TickTracker
 import com.queworx.trader.trading.BrokerSet
 import com.queworx.trader.trading.TradePurpose
-import org.joda.time.DateTime
+import com.queworx.Calendar
 
 /**
  * Evaluates if we should make the trade or not

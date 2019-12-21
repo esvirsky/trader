@@ -3,6 +3,7 @@ package com.queworx.trader.strategies
 
 import groovy.util.logging.Log4j
 import com.queworx.Clock
+import com.queworx.Calendar
 import com.queworx.TradeDirection
 import com.queworx.brokers.Order
 import com.queworx.brokers.OrderStatus
